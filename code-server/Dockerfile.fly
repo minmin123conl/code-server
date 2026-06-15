@@ -1,0 +1,12 @@
+FROM codercom/code-server:latest
+
+USER root
+
+COPY docker-entrypoint.sh /usr/bin/docker-entrypoint.sh
+RUN chmod +x /usr/bin/docker-entrypoint.sh
+
+USER 1000
+
+EXPOSE 8080
+
+ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
